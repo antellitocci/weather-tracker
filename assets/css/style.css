@@ -6,7 +6,10 @@
 }
 
 body{
-    background-color: #035681;
+    background-image: radial-gradient(rgba(126,145,192,1), #035681 200%);
+    background-size: cover;
+    background-position: 70%;
+    background-attachment: fixed;
 }
 
 #current-weather, #daily-weather .card{

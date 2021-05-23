@@ -5,6 +5,15 @@
     font-weight: 500 !important;
 }
 
+body{
+    background-color: #035681;
+}
+
+#current-weather, #daily-weather .card{
+    background-color: #d4cae2;
+    border-color: #d4cae2;
+}
+
 .is-low{
     padding: 0 15px;
     background-color: green;

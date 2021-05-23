@@ -15,7 +15,7 @@
 <body>
     <div class="grid-y medium-grid-frame grid-padding-x">
         <!--Header-->
-        <div class="cell shrink header medium-cell-block-container text-center" style="background-color: beige;">
+        <div class="cell shrink header medium-cell-block-container text-center" style="background-color: #3f3855; color: white;">
             <h1>Weather Center</h1>
         </div>
         <!--Main Body Section-->
@@ -23,7 +23,7 @@
             <!--Left Content Section-->
             <div class="grid-x">
                 <div class="cell medium-2 medium-cell-block-y" style="margin-top: 10px;">
-                    <h3 class="shrink">Search for a City:</h3>
+                    <h3 class="shrink" style="color: white;">Search for a City:</h3>
                     <input type="text" placeholder="Indianapolis" id="user-search">
                     <div class="stacked button-group ">
                         <button class="button">Search</button>
@@ -41,64 +41,9 @@
                 <!--Main Content Section-->
                 <div class="cell medium-9 ">
                     <div class="card" style="margin: 20px 0px 20px 30px; padding: 10px;" id="current-weather">
-                        <!-- <h2>Indianapolis (5/20/2021) [pix]</h2>
-                        <p>Temperature: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
-                        <p>U/V Index: </p> -->
                     </div>
                     <!--Daily Weather Information-->
-                    <div class="grid-x small-up-1 medium-up-5">
-                        <div class="cell">
-                            <div class="card flex-child-auto" style="margin: 10px 0px 10px 30px; padding: 10px;">
-                                <h4>5/21/2021</h4>
-                                <p>[Pic]</p>
-                                <p>Temperature: </p>
-                                <p>Wind: </p>
-                                <p>Humidity: </p>
-                                <p>U/V Index: </p>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card" style="margin: 10px 0px 10px 30px; padding: 10px;">
-                                <h4>5/21/2021</h4>
-                                <p>[Pic]</p>
-                                <p>Temperature: </p>
-                                <p>Wind: </p>
-                                <p>Humidity: </p>
-                                <p>U/V Index: </p>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card" style="margin: 10px 0px 10px 30px; padding: 10px;">
-                                <h4>5/21/2021</h4>
-                                <p>[Pic]</p>
-                                <p>Temperature: </p>
-                                <p>Wind: </p>
-                                <p>Humidity: </p>
-                                <p>U/V Index: </p>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card" style="margin: 10px 0px 10px 30px; padding: 10px;">
-                                <h4>5/21/2021</h4>
-                                <p>[Pic]</p>
-                                <p>Temperature: </p>
-                                <p>Wind: </p>
-                                <p>Humidity: </p>
-                                <p>U/V Index: </p>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card" style="margin: 10px 0px 10px 30px; padding: 10px;">
-                                <h4>5/21/2021</h4>
-                                <p>[Pic]</p>
-                                <p>Temperature: </p>
-                                <p>Wind: </p>
-                                <p>Humidity: </p>
-                                <p>U/V Index: </p>
-                            </div>
-                        </div>
+                    <div class="grid-x small-up-1 medium-up-5" id="daily-weather">
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
     <title>Weather Center</title>
 </head>
 <body>
-    <div class="grid-y medium-grid-frame grid-padding-x">
+    <div class="grid-y medium-auto grid-padding-x">
         <!--Header-->
         <div class="cell shrink header medium-cell-block-container text-center" style="background-color: #3f3855; color: white;">
             <h1>Weather Center</h1>
@@ -25,16 +25,13 @@
                 <div class="cell medium-2 medium-cell-block-y" style="margin-top: 10px;">
                     <h3 class="shrink" style="color: white;">Search for a City:</h3>
                     <input type="text" placeholder="Indianapolis" id="user-search">
-                    <div class="stacked button-group ">
-                        <button class="button">Search</button>
-                    </div>
-                    <hr style="border: 1px solid black;" />
                     <div class="stacked button-group">
-                        <button class="button" style="margin: 5px auto 20px auto;">San Diego</button>
-                        <button class="button">San Diego</button>
-                        <button class="button">San Diego</button>
-                        <button class="button">San Diego</button>
-                        <button class="button">San Diego</button>
+                        <button type="submit" class="button success" id="search-city">Search</button>
+                    </div>
+                    <hr style="border: 1px solid white;" />
+                    <h5 style="color: white;">Recent Searches:</h5>
+                    <button type="button" class="button small alert" id="clear-searches">Clear Searches</button>
+                    <div class="stacked button-group recent-searches" id="recent-searches">
                     </div>    
                 </div>
 

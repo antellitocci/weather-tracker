@@ -1,7 +1,35 @@
-//need to do on submit to pass this to the get city coordinates
+//initial city information to display display
 var cityElem = "Indianapolis";
-//$("#user-search").val().trim();
+//variable to prevent the initial page load search from showing up in recent searches (skip first run)
+var queries = 0;
 
+//load local storage items or set equal to empty array if nothing in localstorage
+var searchedItemsArr = JSON.parse(localStorage.getItem("cities")) || [];
+
+//Search city on user input
+$("#search-city").click(function(event){
+
+    var cityToSearch = $("#user-search").val().trim();
+
+    if(cityToSearch != ""){
+        getCityCoordinates(cityToSearch);
+    }
+    else{
+        alert("You have to type in a city.....");
+    }
+
+    $("#user-search").val("");
+});
+
+//capture clicks on any button group elements from prior searches and fetch weather data for them.
+$(".recent-searches").on("click", "button", function(){
+    var buttonText = $(this).text();
+    //set queries = 0 so it doesn't create a new recent search button or add it to recent searches
+    queries = 0;
+    getCityCoordinates(buttonText);
+});
+
+//get the latitude and longitude of the searched city and pass to function that gathers the weather information
 function getCityCoordinates(city){
 
     var coorApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=7928ba41b57ce7723b35f96aa0990fef";
@@ -9,7 +37,14 @@ function getCityCoordinates(city){
     fetch(coorApiUrl).then(function(response){
         if(response.ok){
             response.json().then(function(data){
-                console.log(data);
+                queries ++;
+                //skip adding initial page load to searchedCities array
+                if (queries != 1){
+                    searchedItemsArr.push(data.name);
+                    saveRecentSearches();
+                    addRecentSearches(data.name);
+                }
+                console.log(searchedItemsArr);
                 getCityWeather(data.coord.lat, data.coord.lon, data.name);
             });
         }
@@ -21,21 +56,21 @@ function getCityCoordinates(city){
 
 };
 
+//grab the searched city's weather information
 function getCityWeather(lat, long, name){
-    console.log(lat);
-    console.log(long);
-
+    
+    //empty current HTML contents of weather sections
+    $("#current-weather").empty();
+    $("#daily-weather").empty();
+    
     var weathApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon="+ long + "&units=imperial&appid=7928ba41b57ce7723b35f96aa0990fef";
 
     fetch(weathApiUrl).then(function(response){
         if(response.ok){
             response.json().then(function(data){
-                console.log(data);
-                //clear old information for all weather elements (TO DO)
                 //get current info from data
                 var currentDay = moment(data.current.dt, "X").format("L");
                 var cityInfo = (name + " (" + currentDay + ") ").toString();
-                console.log(cityInfo);
                 var currentIcon = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png";
                 var currentTemp = data.current.temp;
                 var currentWind = data.current.wind_speed;
@@ -87,8 +122,11 @@ function createCurrentWeatherInfo(info, icon, temp, wind, humidity, uvi){
     $("#current-weather").append(cityWindElem);
     $("#current-weather").append(cityHumidElem);
     $("#current-weather").append(cityUVIElem);
+
+
 };
 
+//create future weather info boxes
 function createFiveDayWeather(date, icon, temp, wind, humidity, uvi){
     //create elements for daily weather boxes
     var weatherCardCellElem = $("<div>").addClass("cell");
@@ -120,6 +158,33 @@ function createFiveDayWeather(date, icon, temp, wind, humidity, uvi){
 
 };
 
+//add a recent search to the page
+function addRecentSearches(city){
+    //create search button
+    var searchButton = $("<button>").addClass("button secondary").attr("style", "margin: 5px auto 15px auto").text(city);
+    $("#recent-searches").append(searchButton);
+};
+
+//load recent searches to page
+function loadRecentSearches(){
+    $.each(searchedItemsArr, function(arr,object){
+        addRecentSearches(object);
+    });
+};
+
+//save recent searches to local storage
+function saveRecentSearches(){
+    localStorage.setItem("cities", JSON.stringify(searchedItemsArr));
+};
+
+//clear recent searches and local storage
+$("#clear-searches").click(function(event){
+    $("#recent-searches").empty();
+    searchedItemsArr = [];
+    saveRecentSearches();
+});
+
+//color the UV Index span element
 function uviColor(uvi, uviElement){
     //apply class to UVI span element
     if (uvi <= 2){
@@ -148,4 +213,8 @@ function uviColor(uvi, uviElement){
     }
 };
 
+//give page initial content
 getCityCoordinates(cityElem);
+
+//load past searches
+loadRecentSearches();

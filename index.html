@@ -26,7 +26,7 @@
                     <h3 class="shrink" style="color: white;">Search for a City:</h3>
                     <input type="text" placeholder="Indianapolis" id="user-search">
                     <div class="stacked button-group">
-                        <button type="submit" class="button success" id="search-city">Search</button>
+                        <button type="submit" class="button success" id="search-city" data-open="enter-city-modal">Search</button>
                     </div>
                     <hr style="border: 1px solid white;" />
                     <h5 style="color: white;">Recent Searches:</h5>
@@ -45,12 +45,27 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <!--failed to enter city modal-->
+    <div class="tiny reveal" id="enter-city-modal" data-reveal data-overlay="false">
+        <h4>Please enter a city to retrieve weather data.</h4>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <!--failed to get api information modal-->
+
+    <div class="tiny reveal" id="api-failure-modal" data-reveal data-overlay="false">
+        <h4>Oops. It seems that city doesn't exist in our database. Please check your spelling and try again.</h4>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 
 
 
-    
 
 
 
@@ -58,14 +73,11 @@
 
 
 
-
-
-
-
-    <!-- Import Foundation JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <!-- Import JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Import Foundation JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    
     <!--Import Moment-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--Import Personal Scripts-->

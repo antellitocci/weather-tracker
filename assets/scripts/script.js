@@ -1,3 +1,4 @@
+Foundation.addToJquery($);
 //initial city information to display display
 var cityElem = "Indianapolis";
 //variable to prevent the initial page load search from showing up in recent searches (skip first run)
@@ -15,7 +16,8 @@ $("#search-city").click(function(event){
         getCityCoordinates(cityToSearch);
     }
     else{
-        alert("You have to type in a city.....");
+        //throw modal error if user doesn't enter a city.
+        $("#enter-city-modal").foundation();
     }
 
     $("#user-search").val("");
@@ -50,7 +52,8 @@ function getCityCoordinates(city){
         }
         else{
             //modal to alert them something went wrong
-            console.log("oops");
+            $("#api-failure-modal").foundation();
+            $("#api-failure-modal").foundation('open');
         }
     });
 

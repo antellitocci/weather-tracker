@@ -16,8 +16,8 @@ $("#search-city").click(function(event){
         getCityCoordinates(cityToSearch);
     }
     else{
-        //throw modal error if user doesn't enter a city.
         $("#enter-city-modal").foundation();
+        $("#enter-city-modal").foundation('open');
     }
 
     $("#user-search").val("");

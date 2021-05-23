@@ -26,7 +26,7 @@
                     <h3 class="shrink" style="color: white;">Search for a City:</h3>
                     <input type="text" placeholder="Indianapolis" id="user-search">
                     <div class="stacked button-group">
-                        <button type="submit" class="button success" id="search-city" data-open="enter-city-modal">Search</button>
+                        <button type="submit" class="button success" id="search-city">Search</button>
                     </div>
                     <hr style="border: 1px solid white;" />
                     <h5 style="color: white;">Recent Searches:</h5>
@@ -48,7 +48,7 @@
     </div>
 
     <!--failed to enter city modal-->
-    <div class="tiny reveal" id="enter-city-modal" data-reveal data-overlay="false">
+    <div class="tiny reveal" id="enter-city-modal" data-reveal>
         <h4>Please enter a city to retrieve weather data.</h4>
         <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
@@ -57,7 +57,7 @@
 
     <!--failed to get api information modal-->
 
-    <div class="tiny reveal" id="api-failure-modal" data-reveal data-overlay="false">
+    <div class="tiny reveal" id="api-failure-modal" data-reveal>
         <h4>Oops. It seems that city doesn't exist in our database. Please check your spelling and try again.</h4>
         <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>

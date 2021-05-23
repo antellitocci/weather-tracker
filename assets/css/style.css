@@ -4,3 +4,27 @@
     font-family: 'Chakra Petch', sans-serif !important;
     font-weight: 500 !important;
 }
+
+.is-low{
+    padding: 0 15px;
+    background-color: green;
+    color: white;
+}
+
+.is-moderate{
+    padding: 0 15px;
+    background-color: yellow;
+    color: black;
+}
+
+.is-high{
+    padding: 0 15px;
+    background-color: orange;
+    color: black;
+}
+
+.is-very-high{
+    padding: 0 15px;
+    background-color: red;
+    color: white;
+}

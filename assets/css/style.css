@@ -18,25 +18,25 @@ body{
 }
 
 .is-low{
-    padding: 0 15px;
+    padding: 0 5px;
     background-color: green;
     color: white;
 }
 
 .is-moderate{
-    padding: 0 15px;
+    padding: 0 5px;
     background-color: yellow;
     color: black;
 }
 
 .is-high{
-    padding: 0 15px;
+    padding: 0 5px;
     background-color: orange;
     color: black;
 }
 
 .is-very-high{
-    padding: 0 15px;
+    padding: 0 5px;
     background-color: red;
     color: white;
 }

@@ -106,7 +106,7 @@ function createCurrentWeatherInfo(info, icon, temp, wind, humidity, uvi){
     //create elements for main weather box
     var cityInfoElem = $("<h2>").text(info);
     var cityWeatherIconElem = $("<img>").attr("src", icon);
-    var cityTempElem = $("<h5>").html("Temperature: " + temp + "&#176;F");
+    var cityTempElem = $("<h5>").html("Temp: " + temp + "&#176;F");
     var cityWindElem = $("<h5>").html("Wind: " + wind + " MPH");
     var cityHumidElem = $("<h5>").html("Humidity: " + humidity + "%");
     var cityUVIElem = $("<h5>").text("UV Index: ");
@@ -134,7 +134,7 @@ function createFiveDayWeather(date, icon, temp, wind, humidity, uvi){
     var weatherCardIconElem = $("<img>").attr("src", icon);
     weatherCardIconElem.css("height", "60px");
     weatherCardIconElem.css("width", "60px");
-    var weatherCardTempElem = $("<p>").html("Temperature: " + temp + "&#176;F");
+    var weatherCardTempElem = $("<p>").html("Temp: " + temp + "&#176;F");
     var weatherCardWindElem = $("<p>").html("Wind: " + wind + " MPH");
     var weatherCardHumidElem = $("<p>").html("Humidity: " + humidity + "%");
     var weatherCardUVIElem = $("<p>").text("UV Index: ");

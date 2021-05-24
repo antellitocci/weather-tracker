@@ -40,3 +40,16 @@ body{
     background-color: red;
     color: white;
 }
+
+@media screen and (max-width: 575px) {
+
+    #current-weather, #five-day{
+        margin-left: 0px !important;
+    }
+
+    #daily-weather .card{
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    }
+    
+}

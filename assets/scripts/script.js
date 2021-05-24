@@ -3,7 +3,6 @@ Foundation.addToJquery($);
 var cityElem = "Indianapolis";
 //variable to prevent the initial page load search from showing up in recent searches (skip first run)
 var queries = 0;
-
 //load local storage items or set equal to empty array if nothing in localstorage
 var searchedItemsArr = JSON.parse(localStorage.getItem("cities")) || [];
 
@@ -46,7 +45,6 @@ function getCityCoordinates(city){
                     saveRecentSearches();
                     addRecentSearches(data.name);
                 }
-                console.log(searchedItemsArr);
                 getCityWeather(data.coord.lat, data.coord.lon, data.name);
             });
         }
@@ -61,7 +59,6 @@ function getCityCoordinates(city){
 
 //grab the searched city's weather information
 function getCityWeather(lat, long, name){
-    
     //empty current HTML contents of weather sections
     $("#current-weather").empty();
     $("#daily-weather").empty();
@@ -97,10 +94,11 @@ function getCityWeather(lat, long, name){
             });
         }
         else{
-            console.log("These are not the APIs you're looking for.");
+            //modal to alert them something went wrong
+            $("#api-failure-modal").foundation();
+            $("#api-failure-modal").foundation('open');
         }
     });
-
 };
 
 //create current weather info box (take information from the api)
@@ -125,8 +123,6 @@ function createCurrentWeatherInfo(info, icon, temp, wind, humidity, uvi){
     $("#current-weather").append(cityWindElem);
     $("#current-weather").append(cityHumidElem);
     $("#current-weather").append(cityUVIElem);
-
-
 };
 
 //create future weather info boxes
@@ -158,7 +154,6 @@ function createFiveDayWeather(date, icon, temp, wind, humidity, uvi){
     weatherCardCellElem.append(weatherCardElem);
 
     $("#daily-weather").append(weatherCardCellElem);
-
 };
 
 //add a recent search to the page

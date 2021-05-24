@@ -8,7 +8,6 @@ var searchedItemsArr = JSON.parse(localStorage.getItem("cities")) || [];
 
 //Search city on user input
 $("#search-city").click(function(event){
-
     var cityToSearch = $("#user-search").val().trim();
 
     if(cityToSearch != ""){
